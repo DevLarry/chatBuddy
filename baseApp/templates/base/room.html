@@ -1,0 +1,17 @@
+{%extends "main.html"%}
+
+{% block content %}
+<h5>Room Description: {{room.description}}</h5>
+<h1>Conversation</h1>
+{%for message in room_messages%}
+<h2>@{{message.user}}  {{message.created|timesince}} ago </h2>
+<h4>{{message.msgBody}}</h4>
+<hr>
+{%endfor%}
+{%if request.user.is_authenticated%}
+<form action="" method="POST">
+    {%csrf_token%}
+    <input type="text" name="msgBody" id="message" placeholder="write you message here..."> 
+</form>
+{%endif%}
+{% endblock %}
