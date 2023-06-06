@@ -9,23 +9,24 @@
 
 <div class="home_container">
   <div>
-    
     <h3>Browse Rooms</h3>
     <hr />
-    <h4><a href="{% url 'home'%}">All</a></h4><hr>
+    <h4><a href="{% url 'home'%}">All</a></h4>
+    <hr />
 
     {% for topic in topics%}
-    <h4><a href="{% url 'home'%}?q={{topic.name}}">{{topic.name}}</a></h4><hr>
+    <h4><a href="{% url 'home'%}?q={{topic.name}}">{{topic.name}}</a></h4>
+    <hr />
     {%endfor%}
   </div>
   <div>
-    <a href="{% url 'createRoom' %}">Create Room  </a>
+    <a href="{% url 'createRoom' %}">Create Room </a>
     <b>{{room_count}} available rooms</b>
-    <hr>
+    <hr />
     {%for room in rooms %}
     <div>
       {%if request.user == room.host%}
-       <a href="{% url 'updateRoom' room.id %}">Edit</a>
+      <a href="{% url 'updateRoom' room.id %}">Edit</a>
       <a href="{% url 'deleteRoom' room.id %}">Delete</a>
       {%endif%}
       <p>@{{room.host.username}}</p>
@@ -41,10 +42,15 @@
     {% endfor %}
   </div>
   <div>
-    <h3>Latest Activities</h3> <hr>
+    <h3>Latest Activities</h3>
+    <hr />
     {%for message in activeityMessages%}
-    <h3>@{{message.user}}  {{message.created|timesince}} ago</h3>
-    <small>{{message.msgBody}}</small><hr>
+    <h3>@{{message.user}} {{message.created|timesince}} ago</h3>
+    <small>{{message.msgBody}}</small>
+  {%if request.user == message.user%}
+    <a href="{%url 'deleteMsg' message.id%}">Delete</a>
+    {%endif%}
+    <hr />
     {%endfor%}
   </div>
 </div>
