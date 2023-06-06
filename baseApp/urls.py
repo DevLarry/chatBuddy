@@ -13,4 +13,5 @@ urlpatterns =[
     path('create_room', views.createRoom, name="createRoom" ),
     path('update_room/<int:id>', views.updateRoom, name="updateRoom" ),
     path('delete_room/<int:id>', views.deleteRoom, name="deleteRoom" ),
+    path('deleteMsg/<int:id>', views.deleteMsg, name="deleteMsg" ),
 ]
