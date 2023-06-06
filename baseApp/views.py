@@ -117,6 +117,7 @@ def deleteRoom(request, id):
         return redirect('home')
     return render(request, 'base/delete.html', {"obj":room})
 
+
 @login_required(login_url="login")
 def deleteMsg(request, id):
     message = Message.objects.get(id = id)
@@ -126,3 +127,16 @@ def deleteMsg(request, id):
         message.delete()
         return redirect('home')
     return render(request, 'base/delete.html', {"obj":message})
+
+
+@login_required(login_url="login")
+def editMsg(request, id):
+    room = Room.objects.get(id=id)
+    message = Message.objects.get(id = id)
+    if request.user != message.user:
+        return HttpResponse("You are not allowed to perform this operation")
+    if request.method == "POST":
+          message.msgBody = request.POST.get('msgBody')
+          message.save()
+          return redirect('room', idParam = room.id)
+    return render(request, 'base/edit.html', {"obj":message})

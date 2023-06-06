@@ -12,12 +12,14 @@
     <h1>Conversation</h1>
     {%for message in room_messages%}
     <h2>
-        @{{message.user}} {{message.created|timesince}} ago
-        {%if request.user == message.user %}
+      @{{message.user}} {{message.created|timesince}} ago
+      <br>
+      <strong>{{message.msgBody}}</strong>
+      {%if request.user == message.user %}
+      <a href="{%url 'editMsg' message.id%}">Edit</a>
       <a href="{%url 'deleteMsg' message.id%}">Delete</a>
       {%endif%}
     </h2>
-    <h4>{{message.msgBody}}</h4>
     <hr />
     {%endfor%} {%if request.user.is_authenticated%}
     <form action="" method="POST">

@@ -1,0 +1,9 @@
+{% extends "main.html" %} {% block content %}
+<form action="", method="POST">
+    {%csrf_token%}
+    <h3>Edit "{{obj.msgBody}}" below </h3>
+    <input type="text" name="msgBody" value="{{obj.msgBody}}"> 
+    <a href="{{request.META.HTTP_REFERER}}">Cancel</a>
+    <button type="submit">Edit</button>
+</form>
+{%endblock content%}
