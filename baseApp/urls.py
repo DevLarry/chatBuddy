@@ -9,6 +9,7 @@ urlpatterns =[
 
     path('', views.home, name="home"),
     path('room/<int:idParam>/', views.room, name="room"),
+    path('profile/<int:id>', views.userProfile, name="profile"),
     
     path('create_room', views.createRoom, name="createRoom" ),
     path('update_room/<int:id>', views.updateRoom, name="updateRoom" ),

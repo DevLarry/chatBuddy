@@ -11,6 +11,45 @@ from .form import RoomForm
 # Create your views here.
 
 
+def home(request):
+    query = request.GET.get('q') if request.GET.get('q') != None else ""
+    rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))
+    topics = Topic.objects.all()
+    room_count = rooms.count()
+    activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))
+    context = {"rooms":rooms, "topics":topics,"room_count":room_count, "activeityMessages":activityMsg}
+    return render(request, "base/home.html", context)
+
+
+def room(request, idParam):
+    room = Room.objects.get(id=idParam)
+    room_messages = room.message_set.all().order_by('-created')
+    participants = room.participants.all()
+    context = {"room": room, 'room_messages':room_messages, "participants":participants}
+
+    if request.method == 'POST':
+        message = Message.objects.create(
+            user = request.user,
+            room = room,
+            msgBody = request.POST.get('msgBody')
+        )
+        room.participants.add(request.user)
+        return redirect('room', idParam = room.id)
+
+    return render(request, "base/room.html", context)
+
+
+def userProfile(request, id):
+    user = User.objects.get(id=id)
+    rooms = user.room_set.all()
+    activeityMessages = user.message_set.all()
+    topics = Topic.objects.all()
+    context = {"user":user, "rooms":rooms, "topics":topics, "activeityMessages":activeityMessages}
+    return render(request, "base/profile.html", context)
+    
+
+
+
 def loginUser(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -53,33 +92,6 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
-
-def home(request):
-    query = request.GET.get('q') if request.GET.get('q') != None else ""
-    rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))
-    topics = Topic.objects.all()
-    room_count = rooms.count()
-    activityMsg = Message.objects.all()
-    context = {"rooms":rooms, "topics":topics,"room_count":room_count, "activeityMessages":activityMsg}
-    return render(request, "base/home.html", context)
-
-
-def room(request, idParam):
-    room = Room.objects.get(id=idParam)
-    room_messages = room.message_set.all().order_by('-created')
-    participants = room.participants.all()
-    context = {"room": room, 'room_messages':room_messages, "participants":participants}
-
-    if request.method == 'POST':
-        message = Message.objects.create(
-            user = request.user,
-            room = room,
-            msgBody = request.POST.get('msgBody')
-        )
-        room.participants.add(request.user)
-        return redirect('room', idParam = room.id)
-
-    return render(request, "base/room.html", context)
 
 @login_required(login_url="login")
 def createRoom (request):

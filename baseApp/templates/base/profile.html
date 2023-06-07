@@ -1,0 +1,19 @@
+{%include 'navbar.html'%}
+<style>
+    .profile_container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+<div class="profile_container">
+    <div>
+   {%include 'base/components/activity.html'%}
+  </div>
+  <div>    
+    {%include 'base/components/roomAvail.html'%}
+  </div>
+
+  <div>
+   {%include 'base/components/browse.html'%} 
+  </div>
+</div>

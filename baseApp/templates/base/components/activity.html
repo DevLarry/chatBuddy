@@ -1,0 +1,10 @@
+<h3>Latest Activities</h3>
+<hr />
+{%for message in activeityMessages%}
+<h3><a href="{%url 'profile' message.user.id %}">@{{message.user}}</a> {{message.created|timesince}} ago</h3>
+<small>{{message.msgBody}}</small>
+{%if request.user == message.user%}
+<a href="{%url 'deleteMsg' message.id%}">Delete</a>
+{%endif%}
+<hr />
+{%endfor%}
