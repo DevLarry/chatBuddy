@@ -1,19 +1,17 @@
-{%include 'navbar.html'%}
-<style>
-    .profile_container{
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-    }
-</style>
-<div class="profile_container">
-    <div>
-   {%include 'base/components/activity.html'%}
-  </div>
-  <div>    
-    {%include 'base/components/roomAvail.html'%}
-  </div>
+{%extends 'main.html'%} {%block content%}
+<main class="profile-page layout layout--3">
+  <div class="container">
+    <!-- Activities Start -->
+    <div>{%include 'base/components/activity.html'%}</div>
+    <!-- Activities End -->
 
-  <div>
-   {%include 'base/components/browse.html'%} 
+    <!-- Room List Start -->
+    <div>{%include 'base/components/roomAvail.html'%}</div>
+    <!-- Room List End -->
+
+    <!-- Topics Start -->
+    <div>{%include 'base/components/browse.html'%}</div>
+    <!-- Topics End -->
   </div>
-</div>
+</main>
+{%endblock content%}
