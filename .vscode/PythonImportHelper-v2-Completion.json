@@ -32,11 +32,35 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
         "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -294,6 +318,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "baseApp.migrations.0003_alter_room_options_room_participants",
+        "description": "baseApp.migrations.0003_alter_room_options_room_participants",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('baseApp', '0002_message_room_topic_delete_baseapp_room_topic_and_more'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='room',\n            options={'ordering': ['-updated', '-created']},\n        ),",
+        "detail": "baseApp.migrations.0003_alter_room_options_room_participants",
+        "documentation": {}
+    },
+    {
         "label": "BaseappConfig",
         "kind": 6,
         "importPath": "baseApp.apps",
@@ -307,7 +340,7 @@
         "kind": 6,
         "importPath": "baseApp.form",
         "description": "baseApp.form",
-        "peekOfCode": "class RoomForm(ModelForm):\n    class Meta:\n        model = Room\n        fields = '__all__'",
+        "peekOfCode": "class RoomForm(ModelForm):\n    class Meta:\n        model = Room\n        fields = '__all__'\n        exclude = ['host', 'participants']",
         "detail": "baseApp.form",
         "documentation": {}
     },
@@ -316,7 +349,7 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class Topic(models.Model):\n    name = models.CharField(max_length=200)\n    def __str__(self):\n        return self.name\nclass Room(models.Model):\n    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)\n    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)\n    # participants\n    name = models.CharField(max_length=200)\n    description = models.TextField(null = True, blank = True)",
+        "peekOfCode": "class Topic(models.Model):\n    name = models.CharField(max_length=200)\n    def __str__(self):\n        return self.name\nclass Room(models.Model):\n    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)\n    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)\n    participants = models.ManyToManyField(User, related_name=\"participants\", blank=True)\n    name = models.CharField(max_length=200)\n    description = models.TextField(null = True, blank = True)",
         "detail": "baseApp.models",
         "documentation": {}
     },
@@ -325,7 +358,7 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class Room(models.Model):\n    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)\n    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)\n    # participants\n    name = models.CharField(max_length=200)\n    description = models.TextField(null = True, blank = True)\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Room(models.Model):\n    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)\n    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)\n    participants = models.ManyToManyField(User, related_name=\"participants\", blank=True)\n    name = models.CharField(max_length=200)\n    description = models.TextField(null = True, blank = True)\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return self.name",
         "detail": "baseApp.models",
         "documentation": {}
     },
@@ -334,8 +367,35 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class Message(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    room =models.ForeignKey(Room, on_delete=models.CASCADE)\n    msgBody = models.TextField()\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return self.msgBody[:50]",
+        "peekOfCode": "class Message(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    room =models.ForeignKey(Room, on_delete=models.CASCADE)\n    msgBody = models.TextField()\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    class Meta:\n        ordering = [\"-updated\", \"-created\"]\n    def __str__(self):\n        return self.msgBody[:50]",
         "detail": "baseApp.models",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def home(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else \"\"\n    rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))\n    topics = Topic.objects.all()\n    room_count = rooms.count()\n    activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))\n    context = {\"rooms\":rooms, \"topics\":topics,\"room_count\":room_count, \"activeityMessages\":activityMsg}\n    return render(request, \"base/home.html\", context)\ndef room(request, idParam):\n    room = Room.objects.get(id=idParam)",
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "room",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def room(request, idParam):\n    room = Room.objects.get(id=idParam)\n    room_messages = room.message_set.all().order_by('-created')\n    participants = room.participants.all()\n    context = {\"room\": room, 'room_messages':room_messages, \"participants\":participants}\n    if request.method == 'POST':\n        message = Message.objects.create(\n            user = request.user,\n            room = room,\n            msgBody = request.POST.get('msgBody')",
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "userProfile",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def userProfile(request, id):\n    user = User.objects.get(id=id)\n    rooms = user.room_set.all()\n    activeityMessages = user.message_set.all()\n    topics = Topic.objects.all()\n    context = {\"user\":user, \"rooms\":rooms, \"topics\":topics, \"activeityMessages\":activeityMessages}\n    return render(request, \"base/profile.html\", context)\ndef loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')",
+        "detail": "baseApp.views",
         "documentation": {}
     },
     {
@@ -361,25 +421,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def logoutUser(request):\n    logout(request)\n    return redirect('home')\ndef home(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else \"\"\n    rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))\n    topics = Topic.objects.all()\n    room_count = rooms.count()\n    context = {\"rooms\":rooms, \"topics\":topics,\"room_count\":room_count}\n    return render(request, \"base/home.html\", context)",
-        "detail": "baseApp.views",
-        "documentation": {}
-    },
-    {
-        "label": "home",
-        "kind": 2,
-        "importPath": "baseApp.views",
-        "description": "baseApp.views",
-        "peekOfCode": "def home(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else \"\"\n    rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))\n    topics = Topic.objects.all()\n    room_count = rooms.count()\n    context = {\"rooms\":rooms, \"topics\":topics,\"room_count\":room_count}\n    return render(request, \"base/home.html\", context)\ndef room(request, idParam):\n    room = Room.objects.get(id=idParam)\n    room_messages = room.message_set.all().order_by('-created')",
-        "detail": "baseApp.views",
-        "documentation": {}
-    },
-    {
-        "label": "room",
-        "kind": 2,
-        "importPath": "baseApp.views",
-        "description": "baseApp.views",
-        "peekOfCode": "def room(request, idParam):\n    room = Room.objects.get(id=idParam)\n    room_messages = room.message_set.all().order_by('-created')\n    context = {\"room\": room, 'room_messages':room_messages}\n    if request.method == 'POST':\n        message = Message.objects.create(\n            user = request.user,\n            room = room,\n            msgBody = request.POST.get('msgBody')\n        )",
+        "peekOfCode": "def logoutUser(request):\n    logout(request)\n    return redirect('home')\n@login_required(login_url=\"login\")\ndef createRoom (request):\n    form = RoomForm()\n    if request.method == \"POST\":\n        form = RoomForm(request.POST)\n        if form.is_valid():\n            room = form.save(commit=False)",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -388,7 +430,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def createRoom (request):\n    form = RoomForm()\n    if request.method == \"POST\":\n        form = RoomForm(request.POST)\n        if form.is_valid():\n            form.save()\n            return redirect(\"home\")\n    context = {\"form\":form}\n    return render(request, \"base/room_form.html\", context )\n@login_required(login_url=\"login\")",
+        "peekOfCode": "def createRoom (request):\n    form = RoomForm()\n    if request.method == \"POST\":\n        form = RoomForm(request.POST)\n        if form.is_valid():\n            room = form.save(commit=False)\n            room.host = request.user\n            room.save()\n            return redirect(\"home\")\n    context = {\"form\":form}",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -406,7 +448,25 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def deleteRoom(request, id):\n    room = Room.objects.get(id = id)\n    if request.user != room.host:\n        return HttpResponse(\"You are not allowed to perform this operation\")\n    if request.method == 'POST':\n        room.delete()\n        return redirect('home')\n    return render(request, 'base/delete.html', {\"obj\":room})",
+        "peekOfCode": "def deleteRoom(request, id):\n    room = Room.objects.get(id = id)\n    if request.user != room.host:\n        return HttpResponse(\"You are not allowed to perform this operation\")\n    if request.method == 'POST':\n        room.delete()\n        return redirect('home')\n    return render(request, 'base/delete.html', {\"obj\":room})\n@login_required(login_url=\"login\")\ndef deleteMsg(request, id):",
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "deleteMsg",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def deleteMsg(request, id):\n    message = Message.objects.get(id = id)\n    if request.user != message.user:\n        return HttpResponse(\"You are not allowed to perform this operation\")\n    if request.method == 'POST':\n        message.delete()\n        return redirect('home')\n    return render(request, 'base/delete.html', {\"obj\":message})\n@login_required(login_url=\"login\")\ndef editMsg(request, id):",
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "editMsg",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def editMsg(request, id):\n    room = Room.objects.get(id=id)\n    message = Message.objects.get(id = id)\n    if request.user != message.user:\n        return HttpResponse(\"You are not allowed to perform this operation\")\n    if request.method == \"POST\":\n          message.msgBody = request.POST.get('msgBody')\n          message.save()\n          return redirect('room', idParam = room.id)\n    return render(request, 'base/edit.html', {\"obj\":message})",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -523,7 +583,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -532,7 +592,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -541,7 +601,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -550,7 +610,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -559,7 +619,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
