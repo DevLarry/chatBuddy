@@ -1,24 +1,25 @@
 {% extends "main.html" %} {% block content %}
-<style>
-  .home_container {
-    display: grid;
-    grid-template-columns: 1.5fr 3fr 1fr;
-    font-size: 24px;
-  }
-</style>
+<main class="layout layout--3">
+  <div class="container">
+    <!-- Topics Start -->
 
-<div class="home_container">
-  <div>
-   {%include 'base/components/activity.html'%}
-  </div>
-  <div>
-    <a href="{% url 'createRoom' %}">Create Room </a>
-    
-    {%include 'base/components/roomAvail.html'%}
-  </div>
+    <div>{%include 'base/components/browse.html'%}</div>
 
-  <div>
-   {%include 'base/components/browse.html'%} 
+    <!-- Topics End -->
+
+    <!-- Room List Start -->
+    <div>
+      <!-- <a href="{% url 'createRoom' %}">Create Room </a> -->
+
+      {%include 'base/components/roomAvail.html'%}
+    </div>
+
+    <!-- Room List End -->
+
+    <!-- Activities Start -->
+    <div>{%include 'base/components/activity.html'%}</div>
+    <!-- Activities End -->
   </div>
-</div>
+</main>
+
 {% endblock content %}
