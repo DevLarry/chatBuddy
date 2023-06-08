@@ -7,7 +7,7 @@
 
 :root {
   --color-main: #71c6dd;
-  --color-main-light: #e1f6fb;
+  --color-main-light: rgb(225, 246, 251);
   --color-dark: #3f4156;
   --color-dark-medium: #51546e;
   --color-dark-light: #696d97;
@@ -910,11 +910,12 @@ a {
   border-radius: 0.7rem;
   overflow: hidden;
   position: relative;
+  bottom: 2rem;
 }
 
 @media screen and (max-width: 900px) {
   .participants {
-    display: none;
+    display: block;
   }
 
   .layout--2 > .container > div:first-child {
@@ -1063,8 +1064,8 @@ a {
   border-radius: 0.7rem;
   overflow-y: auto;
   height: 100%;
-  margin-top: 28vh;
-  padding: 0 2rem 4rem 2rem;
+  margin-top: 24vh;
+  padding: 0 2rem 2rem 2rem;
 }
 
 .thread {
@@ -1103,9 +1104,9 @@ a {
 }
 
 .room__message {
-  padding: 2rem;
+  padding: 1rem 2rem 0rem 2rem;
   position: absolute;
-  z-index: 111;
+  z-index: 1;
   bottom: 0;
   left: 0;
   right: 0;

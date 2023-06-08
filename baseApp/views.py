@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+import django.urls
 from .models import Message, Room, Topic
 from .form import RoomForm
 # Create your views here.
@@ -34,8 +35,10 @@ def room(request, idParam):
             msgBody = request.POST.get('msgBody')
         )
         room.participants.add(request.user)
+        
         return redirect('room', idParam = room.id)
-
+    if room.participants.count() == 0:
+        room.participants.add(room.host.username)
     return render(request, "base/room.html", context)
 
 
