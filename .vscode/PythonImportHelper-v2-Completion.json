@@ -349,7 +349,16 @@
         "kind": 6,
         "importPath": "baseApp.form",
         "description": "baseApp.form",
-        "peekOfCode": "class RoomForm(ModelForm):\n    class Meta:\n        model = Room\n        fields = '__all__'\n        exclude = ['host', 'participants']",
+        "peekOfCode": "class RoomForm(ModelForm):\n    class Meta:\n        model = Room\n        fields = '__all__'\n        exclude = ['host', 'participants']\nclass UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"username\", \"email\"]",
+        "detail": "baseApp.form",
+        "documentation": {}
+    },
+    {
+        "label": "UserForm",
+        "kind": 6,
+        "importPath": "baseApp.form",
+        "description": "baseApp.form",
+        "peekOfCode": "class UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"username\", \"email\"]",
         "detail": "baseApp.form",
         "documentation": {}
     },
@@ -385,7 +394,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def home(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else \"\"\n    rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))\n    topics = Topic.objects.all()\n    room_count = rooms.count()\n    activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))\n    context = {\"rooms\":rooms, \"topics\":topics,\"room_count\":room_count, \"activeityMessages\":activityMsg}\n    return render(request, \"base/home.html\", context)\ndef room(request, idParam):\n    room = Room.objects.get(id=idParam)",
+        "peekOfCode": "def home(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else \"\"\n    rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))\n    topics = Topic.objects.all()\n    room_count = rooms.count()\n    activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))\n    for topic in topics:\n        if topic.room_set.count() == 0:\n            print(topic)\n            # topic.delete()",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -421,7 +430,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def registerUser(request):\n    form = UserCreationForm()\n    room = Room.objects.all()\n    if request.method == 'POST':\n        form = UserCreationForm(request.POST)\n        if form.is_valid():\n            print(room, type(room))\n            user = form.save(commit=False)\n            user.username = user.username.lower()\n            user.save()",
+        "peekOfCode": "def registerUser(request):\n    form = UserCreationForm()\n    room = Room.objects.all()\n    if request.method == 'POST':\n        form = UserCreationForm(request.POST)\n        if form.is_valid():\n            user = form.save(commit=False)\n            user.username = user.username.lower()\n            user.save()\n            login(request,user)",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -476,6 +485,15 @@
         "importPath": "baseApp.views",
         "description": "baseApp.views",
         "peekOfCode": "def editMsg(request, id):\n    room = Room.objects.get(id=id)\n    message = Message.objects.get(id = id)\n    if request.user != message.user:\n        return HttpResponse(\"You are not allowed to perform this operation\")\n    if request.method == \"POST\":\n          message.msgBody = request.POST.get('msgBody')\n          message.save()\n          return redirect('room', idParam = room.id)\n    return render(request, 'base/edit.html', {\"obj\":message})",
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "editUser",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def editUser(request):    \n    user = request.user\n    form = UserForm(instance=user)\n    if request.method == 'POST':\n        form = UserForm(request.POST, instance=user)\n        if form.is_valid():\n            form.save()\n            return redirect('profile', id = user.id)\n    return render(request, 'base/editProfile.html', {\"form\":form})",
         "detail": "baseApp.views",
         "documentation": {}
     },
