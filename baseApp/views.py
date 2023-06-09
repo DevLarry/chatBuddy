@@ -15,13 +15,17 @@ from .form import RoomForm, UserForm
 def home(request):
     query = request.GET.get('q') if request.GET.get('q') != None else ""
     rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))
-    topics = Topic.objects.all()[:5]
+    fullTopics = Topic.objects.all()
+    topics = Topic.objects.all()[0:5]
     room_count = rooms.count()
     activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))
-    for topic in topics:
+    for index, topic in enumerate(fullTopics):
         if topic.room_set.count() == 0:
-            print(topic)
-            # topic.delete()
+            ftopic = Topic.objects.get(id = topic.id)
+            topicRoom = ftopic.room_set.all()
+            ftopic.delete()
+            topicRoom.delete()
+        
     context = {"rooms":rooms, "topics":topics,"room_count":room_count, "activeityMessages":activityMsg}
     return render(request, "base/home.html", context)
 

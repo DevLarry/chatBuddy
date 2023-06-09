@@ -394,7 +394,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def home(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else \"\"\n    rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))\n    topics = Topic.objects.all()[:5]\n    room_count = rooms.count()\n    activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))\n    for topic in topics:\n        if topic.room_set.count() == 0:\n            print(topic)\n            # topic.delete()",
+        "peekOfCode": "def home(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else \"\"\n    rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))\n    fullTopics = Topic.objects.all()\n    topics = Topic.objects.all()[0:5]\n    room_count = rooms.count()\n    activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))\n    for index, topic in enumerate(fullTopics):\n        if topic.room_set.count() == 0:\n            ftopic = Topic.objects.get(id = topic.id)",
         "detail": "baseApp.views",
         "documentation": {}
     },
