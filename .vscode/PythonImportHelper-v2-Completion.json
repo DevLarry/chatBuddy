@@ -493,7 +493,25 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def editUser(request):    \n    user = request.user\n    form = UserForm(instance=user)\n    if request.method == 'POST':\n        form = UserForm(request.POST, instance=user)\n        if form.is_valid():\n            form.save()\n            return redirect('profile', id = user.id)\n    return render(request, 'base/editProfile.html', {\"form\":form})",
+        "peekOfCode": "def editUser(request):    \n    user = request.user\n    form = UserForm(instance=user)\n    if request.method == 'POST':\n        form = UserForm(request.POST, instance=user)\n        if form.is_valid():\n            form.save()\n            return redirect('profile', id = user.id)\n    return render(request, 'base/editProfile.html', {\"form\":form})\ndef topics(request):",
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "topics",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def topics(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else ''\n    topics = Topic.objects.filter(name__icontains=query)\n    return render(request, 'base/topics.html', {\"topics\":topics})\ndef activity(request):\n    room_messages = Message.objects.all()\n    return render(request, 'base/activity.html', {\"room_messages\":room_messages})",
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "activity",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def activity(request):\n    room_messages = Message.objects.all()\n    return render(request, 'base/activity.html', {\"room_messages\":room_messages})",
         "detail": "baseApp.views",
         "documentation": {}
     },

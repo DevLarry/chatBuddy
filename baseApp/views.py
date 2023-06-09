@@ -186,3 +186,14 @@ def editUser(request):
             return redirect('profile', id = user.id)
     return render(request, 'base/editProfile.html', {"form":form})
 
+
+def topics(request):
+    query = request.GET.get('q') if request.GET.get('q') != None else ''
+    topics = Topic.objects.filter(name__icontains=query)
+    return render(request, 'base/topics.html', {"topics":topics})
+
+
+def activity(request):
+    room_messages = Message.objects.all()
+
+    return render(request, 'base/activity.html', {"room_messages":room_messages})

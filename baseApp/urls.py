@@ -17,6 +17,8 @@ urlpatterns =[
     path('deleteMsg/<int:id>', views.deleteMsg, name="deleteMsg" ),
 
     path('editMsg/<int:id>', views.editMsg, name="editMsg" ),
-
     path('edit_user', views.editUser, name='edit_user'),
+
+    path('activity', views.activity, name='activity'),
+    path('topics', views.topics, name='topics'),
 ]
