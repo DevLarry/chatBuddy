@@ -18,6 +18,7 @@ def home(request):
     topics = Topic.objects.all()
     room_count = rooms.count()
     activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))
+    
     context = {"rooms":rooms, "topics":topics,"room_count":room_count, "activeityMessages":activityMsg}
     return render(request, "base/home.html", context)
 
@@ -38,7 +39,7 @@ def room(request, idParam):
         
         return redirect('room', idParam = room.id)
     if room.participants.count() == 0:
-        room.participants.add(room.host.username)
+        room.participants.add(room.host.id)
     return render(request, "base/room.html", context)
 
 
@@ -99,37 +100,49 @@ def logoutUser(request):
 @login_required(login_url="login")
 def createRoom (request):
     form = RoomForm()
+    topics = Topic.objects.all()
 
     if request.method == "POST":
-        form = RoomForm(request.POST)
-        if form.is_valid():
-            room = form.save(commit=False)
-            room.host = request.user
-            room.save()
-            return redirect("home")
-    context = {"form":form}
+        topic_name = request.POST.get("topic")
+        topic, created = Topic.objects.get_or_create(name = topic_name)
+        room = Room.objects.create(
+            host = request.user,
+            name = request.POST.get('name'),
+            topic = topic,
+            description = request.POST.get('description') 
+        )
+        room.participants.add(room.host.id)
+        return redirect('home')
+    print("data", form)
+    context = {"form":form, 'topics': topics}
     return render(request, "base/create_room.html", context )
 
 @login_required(login_url="login")
 def updateRoom(request, id):
     room = Room.objects.get(id = id)
     form = RoomForm(instance=room )
+    topics = Topic.objects.all()
     if request.user != room.host:
         return HttpResponse("You are not allowed to perform this operation")
     if request.method == "POST":
-        form = RoomForm(request.POST, instance=room)
-        if form.is_valid():
-            form.save()
-            return redirect("home")
-    context ={"form":form}
-    return render(request, "base/room_form.html", context)
+        topic_name = request.POST.get('topic')
+        topic, created = Topic.objects.get_or_create(name =  topic_name)
+        room.topic = topic
+        room.name = request.POST.get('name')
+        room.description= request.POST.get('description')
+        room.save()
+        return redirect("home")
+    context ={"form":form, "topics":topics}
+    return render(request, "base/create_room.html", context)
 
 @login_required(login_url="login")
 def deleteRoom(request, id):
+    
     room = Room.objects.get(id = id)
     if request.user != room.host:
         return HttpResponse("You are not allowed to perform this operation")
     if request.method == 'POST':
+
         room.delete()
         return redirect('home')
     return render(request, 'base/delete.html', {"obj":room})

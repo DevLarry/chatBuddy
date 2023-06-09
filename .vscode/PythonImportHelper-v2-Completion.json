@@ -430,7 +430,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def logoutUser(request):\n    logout(request)\n    return redirect('home')\n@login_required(login_url=\"login\")\ndef createRoom (request):\n    form = RoomForm()\n    if request.method == \"POST\":\n        form = RoomForm(request.POST)\n        if form.is_valid():\n            room = form.save(commit=False)",
+        "peekOfCode": "def logoutUser(request):\n    logout(request)\n    return redirect('home')\n@login_required(login_url=\"login\")\ndef createRoom (request):\n    form = RoomForm()\n    topics = Topic.objects.all()\n    if request.method == \"POST\":\n        topic_name = request.POST.get(\"topic\")\n        topic, created = Topic.objects.get_or_create(name = topic_name)",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -439,7 +439,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def createRoom (request):\n    form = RoomForm()\n    if request.method == \"POST\":\n        form = RoomForm(request.POST)\n        if form.is_valid():\n            room = form.save(commit=False)\n            room.host = request.user\n            room.save()\n            return redirect(\"home\")\n    context = {\"form\":form}",
+        "peekOfCode": "def createRoom (request):\n    form = RoomForm()\n    topics = Topic.objects.all()\n    if request.method == \"POST\":\n        topic_name = request.POST.get(\"topic\")\n        topic, created = Topic.objects.get_or_create(name = topic_name)\n        room = Room.objects.create(\n            host = request.user,\n            name = request.POST.get('name'),\n            topic = topic,",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -448,7 +448,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def updateRoom(request, id):\n    room = Room.objects.get(id = id)\n    form = RoomForm(instance=room )\n    if request.user != room.host:\n        return HttpResponse(\"You are not allowed to perform this operation\")\n    if request.method == \"POST\":\n        form = RoomForm(request.POST, instance=room)\n        if form.is_valid():\n            form.save()\n            return redirect(\"home\")",
+        "peekOfCode": "def updateRoom(request, id):\n    room = Room.objects.get(id = id)\n    form = RoomForm(instance=room )\n    topics = Topic.objects.all()\n    if request.user != room.host:\n        return HttpResponse(\"You are not allowed to perform this operation\")\n    if request.method == \"POST\":\n        topic_name = request.POST.get('topic')\n        topic, created = Topic.objects.get_or_create(name =  topic_name)\n        room.topic = topic",
         "detail": "baseApp.views",
         "documentation": {}
     },

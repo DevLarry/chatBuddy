@@ -903,16 +903,22 @@ a {
 =>  Room
 ================================*/
 
-.room,
-.participants {
+.room {
   background: var(--color-dark);
-  max-height: 87.5vh;
+  max-height: 94vh;
   border-radius: 0.7rem;
   overflow: hidden;
   position: relative;
   bottom: 2rem;
 }
-
+.participants {
+  background: var(--color-dark);
+  max-height: 94vh;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  position: relative;
+  bottom: 2rem;
+}
 @media screen and (max-width: 900px) {
   .participants {
     display: block;
@@ -1063,8 +1069,8 @@ a {
   background: var(--color-bg);
   border-radius: 0.7rem;
   overflow-y: auto;
-  height: 100%;
-  margin-top: 24vh;
+  height: 97%;
+  margin-top: 28vh;
   padding: 0 2rem 2rem 2rem;
 }
 
@@ -1107,7 +1113,7 @@ a {
   padding: 1rem 2rem 0rem 2rem;
   position: absolute;
   z-index: 1;
-  bottom: 0;
+  bottom: 1rem;
   left: 0;
   right: 0;
   background: transparent;
