@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 import django.urls
 from .models import Message, Room, Topic
-from .form import RoomForm
+from .form import RoomForm, UserForm
 # Create your views here.
 
 
@@ -18,7 +18,10 @@ def home(request):
     topics = Topic.objects.all()
     room_count = rooms.count()
     activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))
-    
+    for topic in topics:
+        if topic.room_set.count() == 0:
+            print(topic)
+            # topic.delete()
     context = {"rooms":rooms, "topics":topics,"room_count":room_count, "activeityMessages":activityMsg}
     return render(request, "base/home.html", context)
 
@@ -80,7 +83,6 @@ def registerUser(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            print(room, type(room))
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
@@ -102,6 +104,8 @@ def createRoom (request):
     form = RoomForm()
     topics = Topic.objects.all()
 
+   
+            
     if request.method == "POST":
         topic_name = request.POST.get("topic")
         topic, created = Topic.objects.get_or_create(name = topic_name)
@@ -170,3 +174,15 @@ def editMsg(request, id):
           message.save()
           return redirect('room', idParam = room.id)
     return render(request, 'base/edit.html', {"obj":message})
+
+@login_required(login_url="login")
+def editUser(request):    
+    user = request.user
+    form = UserForm(instance=user)
+    if request.method == 'POST':
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile', id = user.id)
+    return render(request, 'base/editProfile.html', {"form":form})
+
