@@ -272,6 +272,10 @@ a {
 
 .header {
   padding: 1.5rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1111;
   background-color: var(--color-dark);
 }
 
@@ -395,7 +399,8 @@ a {
 ================================*/
 
 .layout {
-  margin-top: 2.4rem;
+  margin-top: 10rem;
+  
 }
 
 .layout > .container {
@@ -425,6 +430,11 @@ a {
   flex-basis: 25%;
 }
 /*========== Layout Box ==========*/
+
+.activitiesTop{
+  margin-top: 300px;
+
+}
 
 .layout__box {
   width: 90%;
@@ -799,6 +809,8 @@ a {
 
 .create-room.layout .layout__box {
   max-width: 68rem;
+  margin-top: 50px;
+  z-index: 1;
 }
 
 /*==============================

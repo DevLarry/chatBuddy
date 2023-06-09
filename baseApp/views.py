@@ -15,7 +15,7 @@ from .form import RoomForm, UserForm
 def home(request):
     query = request.GET.get('q') if request.GET.get('q') != None else ""
     rooms = Room.objects.filter(Q(topic__name__icontains=query) | Q(name__icontains=query) | Q(host__username__icontains=query) | Q(description__icontains=query))
-    topics = Topic.objects.all()
+    topics = Topic.objects.all()[:5]
     room_count = rooms.count()
     activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))
     for topic in topics:
