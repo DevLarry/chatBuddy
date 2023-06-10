@@ -1,61 +1,5 @@
 [
     {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "settings",
         "importPath": "django.conf",
         "description": "django.conf",
@@ -69,6 +13,104 @@
         "description": "django.conf",
         "isExtraImport": true,
         "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "django.contrib.auth.models",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "AbstractUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "django.contrib.auth.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.validators",
+        "description": "django.contrib.auth.validators",
+        "detail": "django.contrib.auth.validators",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -78,6 +120,15 @@
         "importPath": "django.db.models.deletion",
         "description": "django.db.models.deletion",
         "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "django.utils.timezone",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "detail": "django.utils.timezone",
         "documentation": {}
     },
     {
@@ -121,36 +172,11 @@
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
         "isExtraImport": true,
         "detail": "django.test",
-        "documentation": {}
-    },
-    {
-        "label": "django.urls",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "django.urls",
-        "description": "django.urls",
-        "detail": "django.urls",
         "documentation": {}
     },
     {
@@ -275,6 +301,15 @@
         "documentation": {}
     },
     {
+        "label": "cloudinary_storage",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cloudinary_storage",
+        "description": "cloudinary_storage",
+        "detail": "cloudinary_storage",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -313,26 +348,35 @@
         "kind": 6,
         "importPath": "baseApp.migrations.0001_initial",
         "description": "baseApp.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='BaseApp',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=200)),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('auth', '0012_alter_user_first_name_max_length'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='User',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
         "detail": "baseApp.migrations.0001_initial",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "baseApp.migrations.0002_message_room_topic_delete_baseapp_room_topic_and_more",
-        "description": "baseApp.migrations.0002_message_room_topic_delete_baseapp_room_topic_and_more",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('baseApp', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Message',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
-        "detail": "baseApp.migrations.0002_message_room_topic_delete_baseapp_room_topic_and_more",
+        "importPath": "baseApp.migrations.0002_user_bio_user_name_alter_user_email",
+        "description": "baseApp.migrations.0002_user_bio_user_name_alter_user_email",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('baseApp', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='user',\n            name='bio',\n            field=models.TextField(max_length=500, null=True),\n        ),",
+        "detail": "baseApp.migrations.0002_user_bio_user_name_alter_user_email",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "baseApp.migrations.0003_alter_room_options_room_participants",
-        "description": "baseApp.migrations.0003_alter_room_options_room_participants",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('baseApp', '0002_message_room_topic_delete_baseapp_room_topic_and_more'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='room',\n            options={'ordering': ['-updated', '-created']},\n        ),",
-        "detail": "baseApp.migrations.0003_alter_room_options_room_participants",
+        "importPath": "baseApp.migrations.0003_message_likes_user_avatar",
+        "description": "baseApp.migrations.0003_message_likes_user_avatar",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('baseApp', '0002_user_bio_user_name_alter_user_email'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='message',\n            name='likes',\n            field=models.ManyToManyField(related_name='message_like', to=settings.AUTH_USER_MODEL),\n        ),",
+        "detail": "baseApp.migrations.0003_message_likes_user_avatar",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "baseApp.migrations.0004_alter_user_avatar",
+        "description": "baseApp.migrations.0004_alter_user_avatar",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('baseApp', '0003_message_likes_user_avatar'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='user',\n            name='avatar',\n            field=models.FileField(default='avatar.svg', null=True, upload_to='chatBuddy_image_storage'),\n        ),",
+        "detail": "baseApp.migrations.0004_alter_user_avatar",
         "documentation": {}
     },
     {
@@ -363,6 +407,15 @@
         "documentation": {}
     },
     {
+        "label": "User",
+        "kind": 6,
+        "importPath": "baseApp.models",
+        "description": "baseApp.models",
+        "peekOfCode": "class User(AbstractUser):\n    name = models.CharField(max_length=200, null=True)\n    email = models.EmailField(unique=True, null=True)\n    bio = models.TextField(max_length=500, null=True)\n    avatar = models.FileField(upload_to='chatBuddy_image_storage', default='avatar.svg', null=True)\n    USERNAME_FIELD = 'email'\n    REQUIRED_FIELDS = []\nclass Topic(models.Model):\n    name = models.CharField(max_length=200)\n    def __str__(self):",
+        "detail": "baseApp.models",
+        "documentation": {}
+    },
+    {
         "label": "Topic",
         "kind": 6,
         "importPath": "baseApp.models",
@@ -385,7 +438,7 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class Message(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    room =models.ForeignKey(Room, on_delete=models.CASCADE)\n    msgBody = models.TextField()\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    class Meta:\n        ordering = [\"-updated\", \"-created\"]\n    def __str__(self):\n        return self.msgBody[:50]",
+        "peekOfCode": "class Message(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    room =models.ForeignKey(Room, on_delete=models.CASCADE)\n    msgBody = models.TextField()\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    likes = models.ManyToManyField(User, related_name='message_like')\n    class Meta:\n        ordering = [\"-updated\", \"-created\"]\n    def __str__(self):",
         "detail": "baseApp.models",
         "documentation": {}
     },
@@ -565,7 +618,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #Telling our app that there is a baseApp to be connected to\n    'baseApp.apps.BaseappConfig'\n]",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #Telling our app that there is a baseApp to be connected to\n    'baseApp.apps.BaseappConfig',\n    'cloudinary',",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -655,7 +708,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( ",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -664,7 +717,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", \n#   api_secret = \"HA5YMVO2vgSdMIjTu-gednIxO7I\" ",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -673,7 +726,16 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCLOUDINARY_STORAGE={\n    'CLOUD_NAME' :'dkxqtaezm', \n    'API_KEY' : '265648568798256', \n    'API_SECRET' : \"HA5YMVO2vgSdMIjTu-gednIxO7I\" \n}\nDEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'",
+        "detail": "chatBuddy.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_FILE_STORAGE",
+        "kind": 5,
+        "importPath": "chatBuddy.settings",
+        "description": "chatBuddy.settings",
+        "peekOfCode": "DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },

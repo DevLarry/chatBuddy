@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-import django.urls
-from .models import Message, Room, Topic
+from .models import Message, Room, Topic, User
 from .form import RoomForm, UserForm
 # Create your views here.
 

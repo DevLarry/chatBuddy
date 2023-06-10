@@ -1,7 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+
+class User(AbstractUser):
+    name = models.CharField(max_length=200, null=True)
+    email = models.EmailField(unique=True, null=True)
+    bio = models.TextField(max_length=500, null=True)
+    avatar = models.FileField(upload_to='chatBuddy_image_storage', default='avatar.svg', null=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
 
 class Topic(models.Model):
     
@@ -28,6 +37,7 @@ class Message(models.Model):
     msgBody = models.TextField()
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(User, related_name='message_like')
 
     class Meta:
         ordering = ["-updated", "-created"]

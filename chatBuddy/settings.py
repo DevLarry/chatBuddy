@@ -1,4 +1,5 @@
 from pathlib import Path
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +28,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #Telling our app that there is a baseApp to be connected to
-    'baseApp.apps.BaseappConfig'
+    'baseApp.apps.BaseappConfig',
+    'cloudinary',
+    'cloudinary_storage',
 ]
+
+AUTH_USER_MODEL ='baseApp.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -115,5 +120,16 @@ STATICFILES_DIRS =[
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
+# cloudinary.config( 
+#   cloud_name = "dkxqtaezm", 
+#   api_key = "265648568798256", 
+#   api_secret = "HA5YMVO2vgSdMIjTu-gednIxO7I" 
+# )
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CLOUDINARY_STORAGE={
+    'CLOUD_NAME' :'dkxqtaezm', 
+    'API_KEY' : '265648568798256', 
+    'API_SECRET' : "HA5YMVO2vgSdMIjTu-gednIxO7I" 
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
