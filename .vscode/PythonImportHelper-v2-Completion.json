@@ -170,6 +170,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -233,6 +249,14 @@
         "description": "django.forms",
         "isExtraImport": true,
         "detail": "django.forms",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreationForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
         "documentation": {}
     },
     {
@@ -305,14 +329,6 @@
         "description": "django.db.models",
         "isExtraImport": true,
         "detail": "django.db.models",
-        "documentation": {}
-    },
-    {
-        "label": "UserCreationForm",
-        "importPath": "django.contrib.auth.forms",
-        "description": "django.contrib.auth.forms",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.forms",
         "documentation": {}
     },
     {
@@ -504,6 +520,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "baseApp.migrations.0009_alter_user_bio",
+        "description": "baseApp.migrations.0009_alter_user_bio",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('baseApp', '0008_remove_message_savemsg_remove_message_unlikes'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='user',\n            name='bio',\n            field=models.TextField(blank=True, max_length=500, null=True),\n        ),",
+        "detail": "baseApp.migrations.0009_alter_user_bio",
+        "documentation": {}
+    },
+    {
         "label": "BaseappConfig",
         "kind": 6,
         "importPath": "baseApp.apps",
@@ -517,7 +542,7 @@
         "kind": 6,
         "importPath": "baseApp.form",
         "description": "baseApp.form",
-        "peekOfCode": "class RoomForm(ModelForm):\n    class Meta:\n        model = Room\n        fields = '__all__'\n        exclude = ['host', 'participants']\nclass UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"avatar\", \"username\", \"email\" ]",
+        "peekOfCode": "class RoomForm(ModelForm):\n    class Meta:\n        model = Room\n        fields = '__all__'\n        exclude = ['host', 'participants']\nclass UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"avatar\", \"username\", \"email\" ]\nclass RegistrationForm(UserCreationForm):",
         "detail": "baseApp.form",
         "documentation": {}
     },
@@ -526,7 +551,16 @@
         "kind": 6,
         "importPath": "baseApp.form",
         "description": "baseApp.form",
-        "peekOfCode": "class UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"avatar\", \"username\", \"email\" ]",
+        "peekOfCode": "class UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"avatar\", \"username\", \"email\" ]\nclass RegistrationForm(UserCreationForm):\n    class Meta:\n        model = User\n        fields = ['name','username', 'email', \"password1\", 'password2']",
+        "detail": "baseApp.form",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationForm",
+        "kind": 6,
+        "importPath": "baseApp.form",
+        "description": "baseApp.form",
+        "peekOfCode": "class RegistrationForm(UserCreationForm):\n    class Meta:\n        model = User\n        fields = ['name','username', 'email', \"password1\", 'password2']",
         "detail": "baseApp.form",
         "documentation": {}
     },
@@ -535,7 +569,7 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class User(AbstractUser):\n    name = models.CharField(max_length=200, null=True)\n    email = models.EmailField(unique=True, null=True)\n    bio = models.TextField(max_length=500, null=True)\n    avatar = models.FileField(upload_to='chatBuddy_image_storage', default='avatar.svg', null=True)\n    USERNAME_FIELD = 'email'\n    REQUIRED_FIELDS = []\nclass Topic(models.Model):\n    name = models.CharField(max_length=200)\n    def __str__(self):",
+        "peekOfCode": "class User(AbstractUser):\n    name = models.CharField(max_length=200, null=True)\n    email = models.EmailField(unique=True, null=True)\n    bio = models.TextField(max_length=500, null=True, blank=True)\n    avatar = models.FileField(upload_to='chatBuddy_image_storage', default='avatar.svg', null=True)\n    USERNAME_FIELD = 'email'\n    REQUIRED_FIELDS = []\nclass Topic(models.Model):\n    name = models.CharField(max_length=200)\n    def __str__(self):",
         "detail": "baseApp.models",
         "documentation": {}
     },
@@ -607,7 +641,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def activity(request):\n    room_messages = Message.objects.all()\n    return render(request, 'base/activity.html', {\"room_messages\":room_messages})\ndef loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')\n    if request.method == \"POST\":\n        username = request.POST.get('username').lower()\n        password = request.POST.get('password')\n        try:",
+        "peekOfCode": "def activity(request):\n    room_messages = Message.objects.all()\n    return render(request, 'base/activity.html', {\"room_messages\":room_messages})\ndef loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')\n    if request.method == \"POST\":\n        email = request.POST.get('email').lower()\n        password = request.POST.get('password')\n        try:",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -616,7 +650,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')\n    if request.method == \"POST\":\n        username = request.POST.get('username').lower()\n        password = request.POST.get('password')\n        try:\n            user = User.objects.get(username = username)\n        except:\n            messages.error(request, \"User does not exist\")",
+        "peekOfCode": "def loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')\n    if request.method == \"POST\":\n        email = request.POST.get('email').lower()\n        password = request.POST.get('password')\n        try:\n            user = User.objects.get(username = eamil)\n        except:\n            messages.error(request, \"User does not exist\")",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -625,7 +659,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def registerUser(request):\n    form = UserCreationForm()\n    room = Room.objects.all()\n    if request.method == 'POST':\n        form = UserCreationForm(request.POST)\n        if form.is_valid():\n            user = form.save(commit=False)\n            user.username = user.username.lower()\n            user.save()\n            login(request,user)",
+        "peekOfCode": "def registerUser(request):\n    form = RegistrationForm()\n    room = Room.objects.all()\n    if request.method == 'POST':\n        form = RegistrationForm(request.POST)\n        if form.is_valid():\n            user = form.save(commit=False)\n            user.email = user.email.lower()\n            user.save()\n            login(request,user)",
         "detail": "baseApp.views",
         "documentation": {}
     },
