@@ -10,12 +10,12 @@
       <div class="profile">
         <div class="profile__avatar">
           <div class="avatar avatar--large active">
-            <img src="https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{request.user.avatar}}" />
+            <img src="https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{user.avatar}}" />
           </div>
         </div>
         <div class="profile__info">
-          <h3>{{user.username}}</h3>
-          <p>@{{user.username}}</p>
+          <h3>{{user.name}}</h3>
+          <p>@{{user.name}}</p>
           {%if user.username == request.user.username%}
           <a href="{% url 'edit_user' %}" class="btn btn--main btn--pill">Edit Profile</a>
           {%endif%}
@@ -60,7 +60,7 @@
         <div class="roomListRoom__header">
           <a href="{%url 'profile' room.host.id%}" class="roomListRoom__author">
             <div class="avatar avatar--small">
-              <img src="https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{request.user.avatar}}" />
+              <img src="https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{room.host.avatar}}" />
             </div>
             <span>@{{room.host.username}}</span>
           </a>

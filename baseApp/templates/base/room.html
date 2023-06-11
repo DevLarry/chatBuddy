@@ -79,7 +79,7 @@
             <p>Hosted By</p>
             <a href="{% url 'profile' room.host.id%}" class="room__author">
               <div class="avatar avatar--small">
-                <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                <img src="https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{room.host.avatar}}" />
               </div>
               <span>@{{room.host.username.title}}</span>
             </a>
@@ -99,10 +99,10 @@
                   >
                     <div class="avatar avatar--small">
                       <img
-                        src="https://randomuser.me/api/portraits/men/37.jpg"
+                        src=https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{message.user.avatar}}"
                       />
                     </div>
-                    <span>@{{message.user}}</span>
+                    <span>@{{message.user.name}}</span>
                   </a>
                   <span class="thread__date"
                     >{{message.created|timesince}} ago</span
@@ -158,11 +158,11 @@
     {%for user in participants%}
         <a href="{% url 'profile' user.id %}" class="participant">
           <div class="avatar avatar--medium">
-            <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+            <img src="https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{user.avatar}}" />
           </div>
           <p>
             {{user.username}}
-            <span>@{{user}}</span>
+            <span>@{{user.name}}</span>
           </p>
         </a>
     {%endfor%}
