@@ -16,6 +16,22 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "django.contrib.auth.models",
         "kind": 6,
         "isExtraImport": true,
@@ -106,6 +122,54 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -188,6 +252,14 @@
         "documentation": {}
     },
     {
+        "label": "reverse",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "path",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -220,6 +292,14 @@
         "documentation": {}
     },
     {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "Q",
         "importPath": "django.db.models",
         "description": "django.db.models",
@@ -237,6 +317,14 @@
     },
     {
         "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponseRedirect",
         "importPath": "django.http",
         "description": "django.http",
         "isExtraImport": true,
@@ -380,6 +468,42 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "baseApp.migrations.0005_message_save_message_unlikes",
+        "description": "baseApp.migrations.0005_message_save_message_unlikes",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('baseApp', '0004_alter_user_avatar'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='message',\n            name='save',\n            field=models.ManyToManyField(related_name='save_message', to=settings.AUTH_USER_MODEL),\n        ),",
+        "detail": "baseApp.migrations.0005_message_save_message_unlikes",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "baseApp.migrations.0006_rename_save_message_savemsg",
+        "description": "baseApp.migrations.0006_rename_save_message_savemsg",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('baseApp', '0005_message_save_message_unlikes'),\n    ]\n    operations = [\n        migrations.RenameField(\n            model_name='message',\n            old_name='save',\n            new_name='saveMsg',\n        ),",
+        "detail": "baseApp.migrations.0006_rename_save_message_savemsg",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "baseApp.migrations.0007_alter_message_likes_alter_message_savemsg_and_more",
+        "description": "baseApp.migrations.0007_alter_message_likes_alter_message_savemsg_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('baseApp', '0006_rename_save_message_savemsg'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='message',\n            name='likes',\n            field=models.ManyToManyField(blank=True, related_name='message_like', to=settings.AUTH_USER_MODEL),\n        ),",
+        "detail": "baseApp.migrations.0007_alter_message_likes_alter_message_savemsg_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "baseApp.migrations.0008_remove_message_savemsg_remove_message_unlikes",
+        "description": "baseApp.migrations.0008_remove_message_savemsg_remove_message_unlikes",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('baseApp', '0007_alter_message_likes_alter_message_savemsg_and_more'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='message',\n            name='saveMsg',\n        ),\n        migrations.RemoveField(",
+        "detail": "baseApp.migrations.0008_remove_message_savemsg_remove_message_unlikes",
+        "documentation": {}
+    },
+    {
         "label": "BaseappConfig",
         "kind": 6,
         "importPath": "baseApp.apps",
@@ -393,7 +517,7 @@
         "kind": 6,
         "importPath": "baseApp.form",
         "description": "baseApp.form",
-        "peekOfCode": "class RoomForm(ModelForm):\n    class Meta:\n        model = Room\n        fields = '__all__'\n        exclude = ['host', 'participants']\nclass UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"username\", \"email\"]",
+        "peekOfCode": "class RoomForm(ModelForm):\n    class Meta:\n        model = Room\n        fields = '__all__'\n        exclude = ['host', 'participants']\nclass UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"avatar\", \"username\", \"email\" ]",
         "detail": "baseApp.form",
         "documentation": {}
     },
@@ -402,7 +526,7 @@
         "kind": 6,
         "importPath": "baseApp.form",
         "description": "baseApp.form",
-        "peekOfCode": "class UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"username\", \"email\"]",
+        "peekOfCode": "class UserForm(ModelForm):\n    class Meta:\n        model = User\n        fields = [\"avatar\", \"username\", \"email\" ]",
         "detail": "baseApp.form",
         "documentation": {}
     },
@@ -438,7 +562,7 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class Message(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    room =models.ForeignKey(Room, on_delete=models.CASCADE)\n    msgBody = models.TextField()\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    likes = models.ManyToManyField(User, related_name='message_like')\n    class Meta:\n        ordering = [\"-updated\", \"-created\"]\n    def __str__(self):",
+        "peekOfCode": "class Message(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    room =models.ForeignKey(Room, on_delete=models.CASCADE)\n    msgBody = models.TextField()\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    likes = models.ManyToManyField(User, related_name='message_like', blank=True)\n    class Meta:\n        ordering = [\"-updated\", \"-created\"]\n    def __str__(self):",
         "detail": "baseApp.models",
         "documentation": {}
     },
@@ -465,7 +589,25 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def userProfile(request, id):\n    user = User.objects.get(id=id)\n    rooms = user.room_set.all()\n    activeityMessages = user.message_set.all()\n    topics = Topic.objects.all()\n    context = {\"user\":user, \"rooms\":rooms, \"topics\":topics, \"activeityMessages\":activeityMessages}\n    return render(request, \"base/profile.html\", context)\ndef loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')",
+        "peekOfCode": "def userProfile(request, id):\n    user = User.objects.get(id=id)\n    rooms = user.room_set.all()\n    activeityMessages = user.message_set.all()\n    topics = Topic.objects.all()\n    context = {\"user\":user, \"rooms\":rooms, \"topics\":topics, \"activeityMessages\":activeityMessages}\n    return render(request, \"base/profile.html\", context)\ndef topics(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else ''\n    topics = Topic.objects.filter(name__icontains=query)",
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "topics",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def topics(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else ''\n    topics = Topic.objects.filter(name__icontains=query)\n    return render(request, 'base/topics.html', {\"topics\":topics})\ndef activity(request):\n    room_messages = Message.objects.all()\n    return render(request, 'base/activity.html', {\"room_messages\":room_messages})\ndef loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')",
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "activity",
+        "kind": 2,
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "peekOfCode": "def activity(request):\n    room_messages = Message.objects.all()\n    return render(request, 'base/activity.html', {\"room_messages\":room_messages})\ndef loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')\n    if request.method == \"POST\":\n        username = request.POST.get('username').lower()\n        password = request.POST.get('password')\n        try:",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -546,25 +688,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def editUser(request):    \n    user = request.user\n    form = UserForm(instance=user)\n    if request.method == 'POST':\n        form = UserForm(request.POST, instance=user)\n        if form.is_valid():\n            form.save()\n            return redirect('profile', id = user.id)\n    return render(request, 'base/editProfile.html', {\"form\":form})\ndef topics(request):",
-        "detail": "baseApp.views",
-        "documentation": {}
-    },
-    {
-        "label": "topics",
-        "kind": 2,
-        "importPath": "baseApp.views",
-        "description": "baseApp.views",
-        "peekOfCode": "def topics(request):\n    query = request.GET.get('q') if request.GET.get('q') != None else ''\n    topics = Topic.objects.filter(name__icontains=query)\n    return render(request, 'base/topics.html', {\"topics\":topics})\ndef activity(request):\n    room_messages = Message.objects.all()\n    return render(request, 'base/activity.html', {\"room_messages\":room_messages})",
-        "detail": "baseApp.views",
-        "documentation": {}
-    },
-    {
-        "label": "activity",
-        "kind": 2,
-        "importPath": "baseApp.views",
-        "description": "baseApp.views",
-        "peekOfCode": "def activity(request):\n    room_messages = Message.objects.all()\n    return render(request, 'base/activity.html', {\"room_messages\":room_messages})",
+        "peekOfCode": "def editUser(request):    \n    user = request.user\n    form = UserForm(instance=user)\n    if request.method == 'POST':\n        form = UserForm(request.POST, instance=user)\n        if form.is_valid():\n            form.save()\n            return redirect('profile', id = user.id)\n    return render(request, 'base/editProfile.html', {\"form\":form})\n# @login_required(login_url='login')",
         "detail": "baseApp.views",
         "documentation": {}
     },

@@ -2,19 +2,19 @@
   <div class="activities__header">
     <h2>Latest Activities</h2>
   </div>
-{%for message in activeityMessages%}
+  {%for message in activeityMessages%}
   <div class="activities__box">
     <div class="activities__boxHeader roomListRoom__header">
       <a href="{%url 'profile' message.user.id %}" class="roomListRoom__author">
         <div class="avatar avatar--small">
-          <img src="https://randomuser.me/api/portraits/women/11.jpg" />
+          <img src="https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{message.user.avatar}}" />
         </div>
         <p>
           @{{message.user}}
           <span>{{message.created|timesince}} ago</span>
         </p>
       </a>
-{%if request.user == message.user%}
+      {%if request.user == message.user%}
 
       <div class="roomListRoom__actions">
         <a href="{%url 'deleteMsg' message.id%}">
@@ -32,19 +32,24 @@
           </svg>
         </a>
       </div>
-{%endif%}
-
+      {%endif%}
     </div>
     <div class="activities__boxContent">
       <p>
-        replied to post “<a href="{% url 'room' message.room.id%}">{{message.room}}</a>”
+        replied to post “<a href="{% url 'room' message.room.id%}"
+          >{{message.room}}</a
+        >”
       </p>
-      <div class="activities__boxRoomContent">
-        {{message.msgBody}}
-      </div>
+      <div class="activities__boxRoomContent">{{message.msgBody}}</div>
+      <!-- <form   action="" method="POST">
+        {%csrf_token%}
+        <button type="submit" name="id" value="{{message.id}}" id="likeBtn">
+          Like {{message.likes.count}}
+        </button>
+      </form> -->
+      
+      
     </div>
   </div>
-{%endfor%}
-
+  {%endfor%}
 </div>
-

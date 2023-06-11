@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
+from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -16,6 +17,7 @@ def home(request):
     fullTopics = Topic.objects.all()
     topics = Topic.objects.all()[0:5]
     room_count = rooms.count()
+    
     activityMsg = Message.objects.filter(Q(room__topic__name__icontains = query))
     for index, topic in enumerate(fullTopics):
         if topic.room_set.count() == 0:
@@ -56,7 +58,16 @@ def userProfile(request, id):
     context = {"user":user, "rooms":rooms, "topics":topics, "activeityMessages":activeityMessages}
     return render(request, "base/profile.html", context)
     
+def topics(request):
+    query = request.GET.get('q') if request.GET.get('q') != None else ''
+    topics = Topic.objects.filter(name__icontains=query)
+    return render(request, 'base/topics.html', {"topics":topics})
 
+
+def activity(request):
+    room_messages = Message.objects.all()
+
+    return render(request, 'base/activity.html', {"room_messages":room_messages})
 
 
 def loginUser(request):
@@ -99,6 +110,7 @@ def registerUser(request):
 def logoutUser(request):
     logout(request)
     return redirect('home')
+
 
 
 @login_required(login_url="login")
@@ -188,14 +200,26 @@ def editUser(request):
             return redirect('profile', id = user.id)
     return render(request, 'base/editProfile.html', {"form":form})
 
+# @login_required(login_url='login')
+# def like(request, id):
+#     message = get_object_or_404(Message, id = request.POST.get('id'))
+#     message.likes.add(request.user)
+#     return HttpResponseRedirect(reverse('home'), args=[str(id)])
 
-def topics(request):
-    query = request.GET.get('q') if request.GET.get('q') != None else ''
-    topics = Topic.objects.filter(name__icontains=query)
-    return render(request, 'base/topics.html', {"topics":topics})
+# @login_required(login_url='login')
+# def unLike(request, id):
+#     if request.method == "GET":
+#         message = get_object_or_404(Message, id = request.GET.get('unlike_id'))
+#         if message.likes.count(request.user) == 1:
+#             message.likes.remove(request.user)
+#         message.unLikes.add(request.user)
+    
+#     return HttpResponseRedirect(reverse('home'), args=[str(id)])
 
-
-def activity(request):
-    room_messages = Message.objects.all()
-
-    return render(request, 'base/activity.html', {"room_messages":room_messages})
+# @login_required(login_url='login')
+# def saveMsg(request, id):
+#     if request.method == "PATCH":
+#         message = get_object_or_404(Message, id = request.PATCH.get('save_id'))
+#         return message.saveMsg.add(request.user)
+        
+#     return HttpResponseRedirect(reverse('home'), args=[str(id)])

@@ -10,7 +10,7 @@
       <div class="profile">
         <div class="profile__avatar">
           <div class="avatar avatar--large active">
-            <img src="https://randomuser.me/api/portraits/men/11.jpg" />
+            <img src="https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{request.user.avatar}}" />
           </div>
         </div>
         <div class="profile__info">
@@ -60,7 +60,7 @@
         <div class="roomListRoom__header">
           <a href="{%url 'profile' room.host.id%}" class="roomListRoom__author">
             <div class="avatar avatar--small">
-              <img src="https://randomuser.me/api/portraits/women/11.jpg" />
+              <img src="https://res.cloudinary.com/dkxqtaezm/image/upload/v1/{{request.user.avatar}}" />
             </div>
             <span>@{{room.host.username}}</span>
           </a>

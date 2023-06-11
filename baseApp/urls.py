@@ -1,5 +1,4 @@
 from django.urls import path
-
 from . import views
 
 
@@ -18,6 +17,9 @@ urlpatterns =[
 
     path('editMsg/<int:id>', views.editMsg, name="editMsg" ),
     path('edit_user', views.editUser, name='edit_user'),
+
+    # path('likeMsg/<str:id>', views.like, name='likeMsg'),
+    
 
     path('activity', views.activity, name='activity'),
     path('topics', views.topics, name='topics'),
