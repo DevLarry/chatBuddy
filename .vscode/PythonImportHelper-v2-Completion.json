@@ -268,6 +268,118 @@
         "documentation": {}
     },
     {
+        "label": "activity",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "createRoom",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "deleteMsg",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "deleteRoom",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "editMsg",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "editUser",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "loginUser",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "logoutUser",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "registerUser",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "room",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "topics",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "updateRoom",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "userProfile",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -545,11 +657,11 @@
         "documentation": {}
     },
     {
-        "label": "UrlTests",
+        "label": "TestUrls",
         "kind": 6,
         "importPath": "baseApp.tests.test_urls",
         "description": "baseApp.tests.test_urls",
-        "peekOfCode": "class UrlTests(SimpleTestCase):\n    def home_url_resolves(self):\n        assert 1 == 2",
+        "peekOfCode": "class TestUrls(SimpleTestCase):\n    def test_home_url_resolves(self):\n        home_url = reverse(\"home\")\n        self.assertEquals(resolve(home_url).func, home)\n    def test_login_url_resolves(self):\n        login_url = reverse(\"login\")\n        self.assertEquals(resolve(login_url).func, loginUser)\n    def test_register_url_resolves(self):\n        register_url = reverse(\"register\")\n        self.assertEquals(resolve(register_url).func, registerUser)",
         "detail": "baseApp.tests.test_urls",
         "documentation": {}
     },
@@ -623,6 +735,15 @@
         "description": "baseApp.models",
         "peekOfCode": "class Message(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    room =models.ForeignKey(Room, on_delete=models.CASCADE)\n    msgBody = models.TextField()\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    likes = models.ManyToManyField(User, related_name='message_like', blank=True)\n    class Meta:\n        ordering = [\"-updated\", \"-created\"]\n    def __str__(self):",
         "detail": "baseApp.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "baseApp.urls",
+        "description": "baseApp.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"register\", views.registerUser, name=\"register\"),\n    path(\"login\", views.loginUser, name=\"login\"),\n    path(\"logout\", views.logoutUser, name=\"logout\"),\n    path(\"\", views.home, name=\"home\"),\n    path(\"room/<int:idParam>/\", views.room, name=\"room\"),\n    path(\"profile/<int:id>\", views.userProfile, name=\"profile\"),\n    path(\"create_room\", views.createRoom, name=\"createRoom\"),\n    path(\"update_room/<int:id>\", views.updateRoom, name=\"updateRoom\"),\n    path(\"delete_room/<int:id>\", views.deleteRoom, name=\"deleteRoom\"),",
+        "detail": "baseApp.urls",
         "documentation": {}
     },
     {
