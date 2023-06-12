@@ -1153,7 +1153,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCLOUDINARY_STORAGE={\n    'CLOUD_NAME' :'dkxqtaezm', \n    'API_KEY' : '265648568798256', \n    'API_SECRET' : \"HA5YMVO2vgSdMIjTu-gednIxO7I\" \n}\nDEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'\nCSRF_TRUSTED_ORIGINS = ['https://chat-buddy.up.railway.app', '127.0.0.1']",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCLOUDINARY_STORAGE={\n    'CLOUD_NAME' :'dkxqtaezm', \n    'API_KEY' : '265648568798256', \n    'API_SECRET' : \"HA5YMVO2vgSdMIjTu-gednIxO7I\" \n}\nDEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'\nCSRF_TRUSTED_ORIGINS = ['*']",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1162,7 +1162,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'\nCSRF_TRUSTED_ORIGINS = ['https://chat-buddy.up.railway.app', '127.0.0.1']",
+        "peekOfCode": "DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'\nCSRF_TRUSTED_ORIGINS = ['*']",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1171,7 +1171,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "CSRF_TRUSTED_ORIGINS = ['https://chat-buddy.up.railway.app', '127.0.0.1']",
+        "peekOfCode": "CSRF_TRUSTED_ORIGINS = ['*']",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
