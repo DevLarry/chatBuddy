@@ -1117,7 +1117,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    os.path.join(BASE_DIR, 'static')\n]\nSECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    os.path.join(BASE_DIR, 'static')\n]\n# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1126,7 +1126,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    os.path.join(BASE_DIR, 'static')\n]\nSECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')\n# Default primary key field type",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    os.path.join(BASE_DIR, 'static')\n]\n# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')\n# Default primary key field type",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1135,7 +1135,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "STATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    os.path.join(BASE_DIR, 'static')\n]\nSECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", ",
+        "peekOfCode": "STATIC_URL = '/static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    os.path.join(BASE_DIR, 'static')\n]\n# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", ",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1144,16 +1144,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    os.path.join(BASE_DIR, 'static')\n]\nSECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", ",
-        "detail": "chatBuddy.settings",
-        "documentation": {}
-    },
-    {
-        "label": "SECURE_PROXY_SSL_HEADER",
-        "kind": 5,
-        "importPath": "chatBuddy.settings",
-        "description": "chatBuddy.settings",
-        "peekOfCode": "SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", \n#   api_secret = \"HA5YMVO2vgSdMIjTu-gednIxO7I\" \n# )\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCLOUDINARY_STORAGE={",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    os.path.join(BASE_DIR, 'static')\n]\n# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", ",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
