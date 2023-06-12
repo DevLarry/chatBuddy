@@ -136,3 +136,4 @@ CLOUDINARY_STORAGE={
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CSRF_TRUSTED_ORIGINS = ['https://chat-buddy.up.railway.app', '127.0.0.1']
