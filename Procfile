@@ -1,0 +1,1 @@
+web: gunicorn chatBuddy.wsgi --log-file -

@@ -76,7 +76,7 @@ def loginUser(request):
         email = request.POST.get('email').lower()
         password = request.POST.get('password')
         try:
-            user = User.objects.get(username = eamil)
+            user = User.objects.get(username = email)
         except:
             messages.error(request, "User does not exist")
         user = authenticate(request, email = email, password = password)

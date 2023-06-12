@@ -902,7 +902,7 @@
         "kind": 2,
         "importPath": "baseApp.views",
         "description": "baseApp.views",
-        "peekOfCode": "def loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')\n    if request.method == \"POST\":\n        email = request.POST.get('email').lower()\n        password = request.POST.get('password')\n        try:\n            user = User.objects.get(username = eamil)\n        except:\n            messages.error(request, \"User does not exist\")",
+        "peekOfCode": "def loginUser(request):\n    if request.user.is_authenticated:\n        return redirect('home')\n    if request.method == \"POST\":\n        email = request.POST.get('email').lower()\n        password = request.POST.get('password')\n        try:\n            user = User.objects.get(username = email)\n        except:\n            messages.error(request, \"User does not exist\")",
         "detail": "baseApp.views",
         "documentation": {}
     },
@@ -992,7 +992,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-918jrgnqc3r)^(0v1i2wim=j(ue+ut5(2li+q*%5!+mvb9((yy'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-918jrgnqc3r)^(0v1i2wim=j(ue+ut5(2li+q*%5!+mvb9((yy'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1001,7 +1001,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-918jrgnqc3r)^(0v1i2wim=j(ue+ut5(2li+q*%5!+mvb9((yy'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-918jrgnqc3r)^(0v1i2wim=j(ue+ut5(2li+q*%5!+mvb9((yy'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1010,7 +1010,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1019,7 +1019,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #Telling our app that there is a baseApp to be connected to",
+        "peekOfCode": "ALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #Telling our app that there is a baseApp to be connected to",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1091,7 +1091,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1100,7 +1100,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1109,7 +1109,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1118,7 +1118,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( ",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1127,7 +1127,16 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", \n#   api_secret = \"HA5YMVO2vgSdMIjTu-gednIxO7I\" ",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", ",
+        "detail": "chatBuddy.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "chatBuddy.settings",
+        "description": "chatBuddy.settings",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", \n#   api_secret = \"HA5YMVO2vgSdMIjTu-gednIxO7I\" ",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
