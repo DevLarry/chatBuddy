@@ -86,7 +86,7 @@ def loginUser(request):
         else:
             messages.error(request, "email or password is incorrect, please try again")
     context = {}
-    return render(request, "base/login_Register.html",  context)
+    return render(request, "base/login.html",  context)
 
 
 def registerUser(request):

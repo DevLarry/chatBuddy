@@ -220,6 +220,38 @@
         "documentation": {}
     },
     {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "reverse",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "resolve",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "reverse",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -377,6 +409,71 @@
         "description": "baseApp.views",
         "isExtraImport": true,
         "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "logoutUser",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "registerUser",
+        "importPath": "baseApp.views",
+        "description": "baseApp.views",
+        "isExtraImport": true,
+        "detail": "baseApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "baseApp.models",
+        "description": "baseApp.models",
+        "isExtraImport": true,
+        "detail": "baseApp.models",
+        "documentation": {}
+    },
+    {
+        "label": "Message",
+        "importPath": "baseApp.models",
+        "description": "baseApp.models",
+        "isExtraImport": true,
+        "detail": "baseApp.models",
+        "documentation": {}
+    },
+    {
+        "label": "Room",
+        "importPath": "baseApp.models",
+        "description": "baseApp.models",
+        "isExtraImport": true,
+        "detail": "baseApp.models",
+        "documentation": {}
+    },
+    {
+        "label": "Topic",
+        "importPath": "baseApp.models",
+        "description": "baseApp.models",
+        "isExtraImport": true,
+        "detail": "baseApp.models",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
@@ -666,6 +763,15 @@
         "documentation": {}
     },
     {
+        "label": "TestViews",
+        "kind": 6,
+        "importPath": "baseApp.tests.test_views",
+        "description": "baseApp.tests.test_views",
+        "peekOfCode": "class TestViews(TestCase):\n    def setUp(self):\n        self.client = Client()\n        self.home_url = reverse('home')\n        self.userProfile = reverse('profile', args=[1])\n        self.user1 = User.objects.create(\n            name = 'Ahmed',\n            email = 'ahmed@gmail.com'\n        )\n        self.topics_url = reverse('topics')",
+        "detail": "baseApp.tests.test_views",
+        "documentation": {}
+    },
+    {
         "label": "BaseappConfig",
         "kind": 6,
         "importPath": "baseApp.apps",
@@ -706,7 +812,7 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class User(AbstractUser):\n    name = models.CharField(max_length=200, null=True)\n    email = models.EmailField(unique=True, null=True)\n    bio = models.TextField(max_length=500, null=True, blank=True)\n    avatar = models.FileField(upload_to='chatBuddy_image_storage', default='avatar.svg', null=True)\n    USERNAME_FIELD = 'email'\n    REQUIRED_FIELDS = []\nclass Topic(models.Model):\n    name = models.CharField(max_length=200)\n    def __str__(self):",
+        "peekOfCode": "class User(AbstractUser):\n    name = models.CharField(max_length=200, null=True)\n    email = models.EmailField(unique=True, null=True)\n    bio = models.TextField(max_length=500, null=True, blank=True)\n    avatar = models.FileField(\n        upload_to=\"chatBuddy_image_storage\", default=\"avatar.svg\", null=True\n    )\n    USERNAME_FIELD = \"email\"\n    REQUIRED_FIELDS = []\nclass Topic(models.Model):",
         "detail": "baseApp.models",
         "documentation": {}
     },
@@ -715,7 +821,7 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class Topic(models.Model):\n    name = models.CharField(max_length=200)\n    def __str__(self):\n        return self.name\nclass Room(models.Model):\n    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)\n    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)\n    participants = models.ManyToManyField(User, related_name=\"participants\", blank=True)\n    name = models.CharField(max_length=200)\n    description = models.TextField(null = True, blank = True)",
+        "peekOfCode": "class Topic(models.Model):\n    name = models.CharField(max_length=200)\n    def __str__(self):\n        return self.name\nclass Room(models.Model):\n    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)\n    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)\n    participants = models.ManyToManyField(User, related_name=\"participants\", blank=True)\n    name = models.CharField(max_length=200)\n    description = models.TextField(null=True, blank=True)",
         "detail": "baseApp.models",
         "documentation": {}
     },
@@ -724,7 +830,7 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class Room(models.Model):\n    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)\n    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)\n    participants = models.ManyToManyField(User, related_name=\"participants\", blank=True)\n    name = models.CharField(max_length=200)\n    description = models.TextField(null = True, blank = True)\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Room(models.Model):\n    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)\n    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)\n    participants = models.ManyToManyField(User, related_name=\"participants\", blank=True)\n    name = models.CharField(max_length=200)\n    description = models.TextField(null=True, blank=True)\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return self.name",
         "detail": "baseApp.models",
         "documentation": {}
     },
@@ -733,7 +839,7 @@
         "kind": 6,
         "importPath": "baseApp.models",
         "description": "baseApp.models",
-        "peekOfCode": "class Message(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    room =models.ForeignKey(Room, on_delete=models.CASCADE)\n    msgBody = models.TextField()\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    likes = models.ManyToManyField(User, related_name='message_like', blank=True)\n    class Meta:\n        ordering = [\"-updated\", \"-created\"]\n    def __str__(self):",
+        "peekOfCode": "class Message(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    room = models.ForeignKey(Room, on_delete=models.CASCADE)\n    msgBody = models.TextField()\n    updated = models.DateTimeField(auto_now=True)\n    created = models.DateTimeField(auto_now_add=True)\n    likes = models.ManyToManyField(User, related_name=\"message_like\", blank=True)\n    class Meta:\n        ordering = [\"-updated\", \"-created\"]\n    def __str__(self):",
         "detail": "baseApp.models",
         "documentation": {}
     },
@@ -742,7 +848,7 @@
         "kind": 5,
         "importPath": "baseApp.urls",
         "description": "baseApp.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"register\", views.registerUser, name=\"register\"),\n    path(\"login\", views.loginUser, name=\"login\"),\n    path(\"logout\", views.logoutUser, name=\"logout\"),\n    path(\"\", views.home, name=\"home\"),\n    path(\"room/<int:idParam>/\", views.room, name=\"room\"),\n    path(\"profile/<int:id>\", views.userProfile, name=\"profile\"),\n    path(\"create_room\", views.createRoom, name=\"createRoom\"),\n    path(\"update_room/<int:id>\", views.updateRoom, name=\"updateRoom\"),\n    path(\"delete_room/<int:id>\", views.deleteRoom, name=\"deleteRoom\"),",
+        "peekOfCode": "urlpatterns = [\n    path(\"register\", views.registerUser, name=\"register\"),\n    path(\"login\", views.loginUser, name=\"login\"),\n    path(\"logout\", views.logoutUser, name=\"logout\"),\n    path(\"\", views.home, name=\"home\"),\n    path(\"room/<int:idParam>/\", views.room, name=\"room\"),\n    path(\"profile/<str:id>\", views.userProfile, name=\"profile\"),\n    path(\"create_room\", views.createRoom, name=\"createRoom\"),\n    path(\"update_room/<int:id>\", views.updateRoom, name=\"updateRoom\"),\n    path(\"delete_room/<int:id>\", views.deleteRoom, name=\"deleteRoom\"),",
         "detail": "baseApp.urls",
         "documentation": {}
     },
