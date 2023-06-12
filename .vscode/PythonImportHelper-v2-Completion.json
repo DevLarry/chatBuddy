@@ -1091,7 +1091,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1100,7 +1100,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1109,7 +1109,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1118,7 +1118,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1127,7 +1127,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", ",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", ",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
@@ -1136,7 +1136,7 @@
         "kind": 5,
         "importPath": "chatBuddy.settings",
         "description": "chatBuddy.settings",
-        "peekOfCode": "STATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", \n#   api_secret = \"HA5YMVO2vgSdMIjTu-gednIxO7I\" ",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nSTATICFILES_DIRS =[\n    BASE_DIR / 'static'\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n# cloudinary.config( \n#   cloud_name = \"dkxqtaezm\", \n#   api_key = \"265648568798256\", \n#   api_secret = \"HA5YMVO2vgSdMIjTu-gednIxO7I\" ",
         "detail": "chatBuddy.settings",
         "documentation": {}
     },
