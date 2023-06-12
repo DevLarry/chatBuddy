@@ -121,7 +121,6 @@ STATICFILES_DIRS =[
     
 ]
 
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 # cloudinary.config( 
@@ -136,4 +135,5 @@ CLOUDINARY_STORAGE={
     'API_SECRET' : "HA5YMVO2vgSdMIjTu-gednIxO7I" 
 }
 
+CSRF_TRUSTED_ORIGINS = ['https://*.up.railway.app','https://*.127.0.0.1']
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
