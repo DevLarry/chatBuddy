@@ -1,4 +1,2 @@
 /djangoEnv
-*.dockerignore
-Dockerfile
-docker-compose
+
